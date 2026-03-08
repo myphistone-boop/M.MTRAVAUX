@@ -61,15 +61,12 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="group flex items-center gap-3" onClick={closeMenu}>
-            <img 
-              src={COMPANY_INFO.logo} 
-              alt={COMPANY_INFO.name} 
-              className="h-12 w-auto object-contain"
-              referrerPolicy="no-referrer"
-            />
+            <div className="h-12 w-12 bg-accent rounded-xl flex items-center justify-center">
+              <Icons.Electric className="w-7 h-7 text-primary" />
+            </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-xl tracking-tight text-primary dark:text-white leading-none">{COMPANY_INFO.name}</span>
-              <span className="text-[8px] tracking-[0.2em] text-accent uppercase font-medium mt-1">Plomberie & Chauffage</span>
+              <span className="text-[8px] tracking-[0.2em] text-accent uppercase font-medium mt-1">Électricien</span>
             </div>
           </Link>
 
@@ -111,12 +108,9 @@ export const Navbar: React.FC = () => {
       <div className={`fixed inset-0 bg-white dark:bg-neutral-950 z-[60] transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden flex flex-col`}>
         <div className="flex items-center justify-between px-6 py-4 border-b dark:border-neutral-800">
           <div className="flex items-center gap-3">
-            <img 
-              src={COMPANY_INFO.logo} 
-              alt={COMPANY_INFO.name} 
-              className="h-10 w-auto object-contain"
-              referrerPolicy="no-referrer"
-            />
+            <div className="h-10 w-10 bg-accent rounded-xl flex items-center justify-center">
+              <Icons.Electric className="w-6 h-6 text-primary" />
+            </div>
             <span className="font-display font-bold text-xl text-primary dark:text-white">{COMPANY_INFO.name}</span>
           </div>
           <button onClick={closeMenu} className="p-2 rounded-full bg-gray-100 dark:bg-neutral-800 text-primary dark:text-white">

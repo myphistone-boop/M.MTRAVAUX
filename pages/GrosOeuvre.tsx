@@ -10,14 +10,14 @@ export const GrosOeuvre: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] sm:h-[60vh] flex items-center bg-primary overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-40 sm:opacity-40">
-           <img 
-            src="https://storage.googleapis.com/novelec_assets/Serin_Plomberie/OIP.webp" 
-            alt="Salle de bain moderne et plomberie gros oeuvre" 
+           <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1600&q=80"
+            alt="Installation électrique gros oeuvre"
             className="w-full h-full object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent sm:via-primary/60 z-10"></div>
-        
+
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl animate-float" style={{ animationDuration: '10s' }}>
             <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-accent/20 border border-accent/30 text-accent-light text-[10px] sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6 backdrop-blur-sm">
@@ -25,15 +25,15 @@ export const GrosOeuvre: React.FC = () => {
               Rénovation & Installation
             </div>
             <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 leading-tight">
-              Création de Salle de Bain <br/>
-              <span className="text-accent">& Gros Œuvre Plomberie</span>
+              Installation Électrique <br/>
+              <span className="text-accent">& Gros Œuvre</span>
             </h1>
             <p className="text-base sm:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed max-w-2xl">
-              De la conception à la réalisation. Salle de bain clé en main, rénovation complète des réseaux, installation de chauffage central.
+              De la conception à la réalisation. Rénovation complète, installation neuve, mise aux normes et domotique.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/devis" 
+              <Link
+                to="/devis"
                 className="px-6 py-3.5 sm:px-8 sm:py-4 bg-accent text-primary font-bold rounded-full hover:bg-white transition-all shadow-xl text-center text-sm sm:text-base"
               >
                 Demander un devis gratuit
@@ -49,41 +49,41 @@ export const GrosOeuvre: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-primary dark:text-white font-display font-bold text-3xl md:text-4xl mb-6">Nos prestations gros œuvre</h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg">
-              Pour vos projets de construction ou de rénovation lourde, nous assurons la création et la modification de tous vos réseaux fluides.
+              Pour vos projets de construction ou de rénovation électrique, nous assurons la création et la modification de toute votre installation.
             </p>
           </div>
 
           <MobileHorizontalScroll className="lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:pb-0">
             {[
               {
-                icon: Icons.Droplet,
-                title: "Salle de Bain Clé en Main",
-                desc: "Conception complète : douche à l'italienne, baignoire, meuble vasque, carrelage et faïence."
+                icon: Icons.Electric,
+                title: "Rénovation Électrique Complète",
+                desc: "Mise aux normes NFC 15-100, remplacement du tableau, recâblage complet de l'habitation."
               },
               {
                 icon: Icons.Blueprint,
-                title: "Réseaux Neufs",
-                desc: "Création complète de réseaux d'alimentation (cuivre, multicouche, PER) et d'évacuation (PVC) pour maison neuve."
+                title: "Installation Neuve",
+                desc: "Création complète de l'installation électrique pour construction neuve. Raccordement au réseau Enedis."
               },
               {
-                icon: Icons.HVAC,
-                title: "Chauffage Central",
-                desc: "Installation de chaudière gaz, radiateurs, plancher chauffant hydraulique. Désembouage de circuit."
-              },
-              {
-                icon: Icons.Renovation,
-                title: "Rénovation Cuisine",
-                desc: "Modification des arrivées et évacuations pour votre nouvelle cuisine. Pose d'évier et raccordement lave-vaisselle."
+                icon: Icons.Shield,
+                title: "Mise aux Normes",
+                desc: "Diagnostic de conformité, mise à la terre, installation de différentiels et disjoncteurs aux normes actuelles."
               },
               {
                 icon: Icons.Settings,
-                title: "Traitement de l'Eau",
-                desc: "Installation d'adoucisseur d'eau pour protéger vos équipements du calcaire. Filtres et osmoseurs."
+                title: "Domotique",
+                desc: "Installation de volets électriques, éclairage intelligent, chauffage connecté et systèmes de gestion centralisée."
+              },
+              {
+                icon: Icons.HVAC,
+                title: "VMC & Ventilation",
+                desc: "Installation de VMC simple ou double flux. Renouvellement de l'air et amélioration de la qualité de vie."
               },
               {
                 icon: Icons.Check,
-                title: "PMR & Accessibilité",
-                desc: "Aménagement de salle de bain pour personnes à mobilité réduite (douche sécurisée, barres de maintien)."
+                title: "Vidéosurveillance & Alarmes",
+                desc: "Installation de caméras de surveillance, systèmes d'alarme, détecteurs de fumée et contrôle d'accès."
               }
             ].map((item, idx) => (
               <div key={idx} className="p-8 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700 hover:border-accent/30 dark:hover:border-accent/30 hover:shadow-lg transition-all group h-full">
@@ -113,15 +113,15 @@ export const GrosOeuvre: React.FC = () => {
                 Votre projet, étape par étape.
               </h2>
               <p className="text-gray-300 mb-8 text-lg">
-                Nous vous accompagnons dans la réalisation de vos travaux de plomberie d'envergure avec rigueur et professionnalisme.
+                Nous vous accompagnons dans la réalisation de vos travaux électriques d'envergure avec rigueur et professionnalisme.
               </p>
-              
+
               <div className="space-y-8">
                 {[
-                  { step: "01", title: "Étude & Devis", text: "Visite technique, conseils personnalisés et devis détaillé gratuit." },
-                  { step: "02", title: "Planification", text: "Choix des matériaux et sanitaires, fixation d'une date d'intervention." },
-                  { step: "03", title: "Réalisation", text: "Travaux effectués dans les règles de l'art, protection du chantier." },
-                  { step: "04", title: "Réception", text: "Vérification du bon fonctionnement, nettoyage et explications." }
+                  { step: "01", title: "Diagnostic & Devis", text: "Visite technique, étude de l'installation existante et devis détaillé gratuit." },
+                  { step: "02", title: "Planification", text: "Choix des matériaux et équipements, fixation d'une date d'intervention." },
+                  { step: "03", title: "Réalisation", text: "Travaux effectués dans les règles de l'art, conformes à la norme NFC 15-100." },
+                  { step: "04", title: "Réception & Contrôle", text: "Vérification du bon fonctionnement, tests de sécurité et remise du Consuel si nécessaire." }
                 ].map((s, i) => (
                   <div key={i} className="flex gap-6">
                     <div className="font-display font-bold text-3xl text-accent/50">{s.step}</div>
@@ -137,22 +137,22 @@ export const GrosOeuvre: React.FC = () => {
             <div className="md:w-1/2">
                <div className="grid grid-cols-1 gap-6">
                  <div className="relative rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
-                   <img 
-                     src="https://storage.googleapis.com/novelec_assets/Serin_Plomberie/Sol.webp" 
-                     alt="Installation plancher chauffant" 
+                   <img
+                     src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80"
+                     alt="Installation tableau électrique"
                      className="w-full h-64 object-cover"
                    />
                  </div>
                  <div className="relative rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
-                   <img 
-                     src="https://storage.googleapis.com/novelec_assets/Serin_Plomberie/Chauffage.webp" 
-                     alt="Installation chauffage central" 
+                   <img
+                     src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+                     alt="Câblage électrique professionnel"
                      className="w-full h-64 object-cover"
                    />
                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                       <div className="flex items-center text-white">
                         <Icons.Shield className="w-5 h-5 text-accent mr-2" />
-                        <span className="font-bold">Garantie Décennale</span>
+                        <span className="font-bold">Conforme NFC 15-100</span>
                       </div>
                    </div>
                  </div>
@@ -165,9 +165,9 @@ export const GrosOeuvre: React.FC = () => {
       {/* CTA final */}
       <section className="py-12 md:py-16 bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 text-center mb-12">
-          <h2 className="font-display font-bold text-3xl text-primary dark:text-white mb-6">Un projet de rénovation ?</h2>
+          <h2 className="font-display font-bold text-3xl text-primary dark:text-white mb-6">Un projet électrique ?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-8">
-            Confiez vos travaux de plomberie à un artisan qualifié pour un résultat durable et esthétique.
+            Confiez vos travaux d'électricité à un professionnel qualifié pour un résultat conforme, sûr et durable.
           </p>
         </div>
         <div className="max-w-4xl mx-auto px-4">

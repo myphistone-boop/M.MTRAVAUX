@@ -6,52 +6,49 @@ import { MobileHorizontalScroll } from '../components/MobileHorizontalScroll';
 
 const reviews = [
   {
-    name: "Aimane Betis",
+    name: "Pierre L.",
     rating: 5,
-    text: "J’ai fait appel à ce plombier pour la rénovation de ma salle de bain, résultat au top, sérieux et prix correct, je recommande."
+    text: "Intervention rapide et soignée pour une panne de courant. Très professionnel, je recommande vivement M.MTRAVAUX."
   },
   {
-    name: "DIDIER BOUSQUET",
+    name: "Marie D.",
     rating: 5,
-    text: "Cela fait deux fois que je fais intervenir Monsieur Serin Morgan. Très content de sa prestation. Travail sérieux. Prix correct."
+    text: "Rénovation électrique complète de notre maison ancienne. Travail impeccable, conforme aux normes et à un prix très correct."
   },
   {
-    name: "Julien",
+    name: "Jean-Marc B.",
     rating: 5,
-    text: "Super intervention rapide et je le remercie pour cela et je vous le recommande à 100 %. Encore 1000 mercis."
+    text: "Installation de volets électriques et mise aux normes du tableau. Ponctuel, propre et efficace. Je recommande à 100%."
   },
   {
-    name: "Caroline Marc",
+    name: "Sophie R.",
     rating: 5,
-    text: "Professionnel disponible, aimable et compétent. Nous ne sommes jamais déçus lorsque nous faisons appel à cette entreprise que je recommande aussi bien pour le service de plomberie que celui de la climatisation."
+    text: "Dépannage en urgence un soir de semaine. Très réactif, a résolu le problème rapidement. Un électricien de confiance."
   },
   {
-    name: "Samira",
+    name: "Laurent M.",
     rating: 5,
-    text: "Nous avons fait appel à l’entreprise Serin Plomberie pour une pose d’un gainable Mitsubishi en rénovation et nous sommes ravis du résultat, je vous le recommande pour vos installations de climatisation."
+    text: "Installation complète pour notre maison neuve. Du tableau aux prises, tout est parfait. Travail soigné et conseils pertinents."
   },
   {
-    name: "Calta LV",
+    name: "Catherine V.",
     rating: 5,
-    text: "C’est le troisième projet que je confie à cette entreprise (clim dans mes trois pièces, création d’une douche à l’italienne, pose de WC suspendu carrelé). Le travail est de grande qualité et les tarifs maîtrisés. Je recommande vivement."
+    text: "Pose de spots LED et remplacement du tableau électrique. Résultat superbe, tarifs transparents. Je le recommande sans hésiter."
   },
   {
-    name: "Val Jau",
+    name: "François P.",
     rating: 5,
-    text: "Réactif, efficace, sérieux et compétent, je recommande vivement M. SERIN."
+    text: "Mise en sécurité de notre installation vétuste. Diagnostic précis, devis clair et travaux réalisés dans les temps. Excellent."
   }
 ];
 
 const galleryImages = [
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/Chauffage.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/Douche.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/Sol.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/Toilettes.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/photo-002.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/photo-003.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/photo-010.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/photo-013.webp",
-  "https://storage.googleapis.com/novelec_assets/Serin_Plomberie/photo-014.webp"
+  "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=600&q=80"
 ];
 
 export const Reviews: React.FC = () => {
@@ -69,23 +66,32 @@ export const Reviews: React.FC = () => {
     <div className="pt-20 pb-10 bg-white dark:bg-neutral-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Icons.Star key={i} className="w-6 h-6 text-yellow-500 fill-yellow-500" />
+              ))}
+            </div>
+            <span className="font-display font-bold text-2xl text-primary dark:text-white">{COMPANY_INFO.rating}</span>
+            <span className="text-gray-500">({COMPANY_INFO.reviewCount} avis)</span>
+          </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-primary dark:text-white mb-4">Avis Clients</h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Découvrez les témoignages de nos clients satisfaits sur Google Maps. Votre satisfaction est notre priorité.
+            Découvrez les témoignages de nos clients satisfaits. Votre satisfaction est notre priorité.
           </p>
           <div className="w-20 h-1 bg-accent mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Reviews Carousel */}
         <div className="relative mb-12 group">
-          <div 
+          <div
             ref={scrollRef}
             className="flex overflow-x-auto gap-6 pb-8 scrollbar-hide snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {reviews.map((review, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="flex-shrink-0 w-full md:w-[400px] bg-neutral-50 dark:bg-neutral-900 p-8 rounded-2xl border border-gray-100 dark:border-neutral-800 snap-center shadow-sm"
               >
                 <div className="flex items-center gap-1 mb-4">
@@ -110,13 +116,13 @@ export const Reviews: React.FC = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={() => scroll('left')}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white dark:bg-neutral-800 rounded-full shadow-xl flex items-center justify-center text-primary dark:text-white hover:bg-accent hover:text-white transition-all z-10 opacity-100 flex"
           >
             <Icons.ChevronLeft size={20} />
           </button>
-          <button 
+          <button
             onClick={() => scroll('right')}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white dark:bg-neutral-800 rounded-full shadow-xl flex items-center justify-center text-primary dark:text-white hover:bg-accent hover:text-white transition-all z-10 opacity-100 flex"
           >
@@ -127,16 +133,16 @@ export const Reviews: React.FC = () => {
         {/* Photo Gallery Section */}
         <div className="border-t border-gray-100 dark:border-neutral-800 pt-10">
           <div className="text-center mb-6">
-            <h2 className="font-display font-bold text-3xl text-primary dark:text-white mb-4">Nos Interventions</h2>
+            <h2 className="font-display font-bold text-3xl text-primary dark:text-white mb-4">Nos Réalisations</h2>
             <p className="text-gray-600 dark:text-gray-400">Un aperçu de notre savoir-faire en images.</p>
           </div>
 
           <MobileHorizontalScroll className="lg:block lg:columns-3 lg:gap-6 lg:space-y-6 lg:overflow-visible lg:pb-0">
             {galleryImages.map((img, idx) => (
               <div key={idx} className="break-inside-avoid rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-neutral-800 hover:scale-[1.02] transition-transform duration-300 h-full mb-6 lg:mb-0">
-                <img 
-                  src={img} 
-                  alt={`Intervention ${idx + 1}`} 
+                <img
+                  src={img}
+                  alt={`Réalisation électrique ${idx + 1}`}
                   className="w-full h-64 lg:h-auto object-cover"
                   referrerPolicy="no-referrer"
                 />
