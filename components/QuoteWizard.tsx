@@ -28,61 +28,61 @@ export const QuoteWizard: React.FC = () => {
   };
 
   const categories = [
-    { id: 'urgent', title: 'Intervention Rapide', icon: Icons.Wrench, desc: "Dépannage rapide et efficace (fuite, bouchon...)" },
-    { id: 'gros_oeuvre', title: 'Projet Gros Œuvre', icon: Icons.Hammer, desc: "Rénovation, salle de bain, chauffage" },
+    { id: 'urgent', title: 'Intervention Rapide', icon: Icons.Electric, desc: "Dépannage électrique urgent (panne, court-circuit...)" },
+    { id: 'gros_oeuvre', title: 'Projet Gros Œuvre', icon: Icons.Hammer, desc: "Rénovation, installation neuve, mise aux normes" },
   ];
 
   const majorTypes = [
-    { type: "Plomberie maison neuve", icon: Icons.Blueprint },
-    { type: "Mise en place piscine", icon: Icons.Droplet },
-    { type: "Rénovation salle de bain", icon: Icons.Droplet },
-    { type: "Chauffage central", icon: Icons.HVAC },
-    { type: "Réseaux extérieurs", icon: Icons.Settings },
-    { type: "Colonne montante", icon: Icons.Wrench },
+    { type: "Rénovation électrique complète", icon: Icons.Renovation },
+    { type: "Installation neuve", icon: Icons.Blueprint },
+    { type: "Mise aux normes NFC 15-100", icon: Icons.Shield },
+    { type: "Domotique & Volets électriques", icon: Icons.Settings },
+    { type: "VMC & Ventilation", icon: Icons.HVAC },
+    { type: "Vidéosurveillance & Alarmes", icon: Icons.Shield },
     { type: "Autre projet", icon: Icons.Plus },
   ];
 
   const urgentTypes = [
-    { type: "Fuite d'eau", icon: Icons.Droplet },
-    { type: "Canalisation bouchée", icon: Icons.Settings },
-    { type: "Panne chauffe-eau", icon: Icons.HVAC },
-    { type: "Problème WC", icon: Icons.Check },
+    { type: "Panne de courant", icon: Icons.Electric },
+    { type: "Court-circuit", icon: Icons.Wrench },
+    { type: "Disjoncteur qui saute", icon: Icons.Settings },
+    { type: "Prise / interrupteur défectueux", icon: Icons.Renovation },
     { type: "Autre intervention rapide", icon: Icons.Plus },
   ];
 
   const urgentSpecs: Record<string, { label: string, options: { id: string, label: string, price: string, delay: string }[] }> = {
-    "Fuite d'eau": {
-      label: "Où se situe la fuite ?",
+    "Panne de courant": {
+      label: "Quel type de panne ?",
       options: [
-        { id: 'apparent', label: "Visible (Robinet, siphon, raccord)", price: "80€ - 120€", delay: "Moins de 2h" },
-        { id: 'encastre', label: "Encastrée (Mur, sol, plafond)", price: "150€ - 250€", delay: "Moins de 4h" },
+        { id: 'partielle', label: "Panne partielle (une pièce / un circuit)", price: "80€ - 130€", delay: "Moins de 2h" },
+        { id: 'totale', label: "Panne totale (plus de courant)", price: "100€ - 180€", delay: "Moins de 2h" },
       ]
     },
-    "Canalisation bouchée": {
-      label: "Quel équipement est bouché ?",
+    "Court-circuit": {
+      label: "Où se situe le problème ?",
       options: [
-        { id: 'petit', label: "Évier, Lavabo, Douche", price: "90€ - 130€", delay: "Moins de 2h" },
-        { id: 'gros', label: "WC ou Canalisation principale", price: "140€ - 190€", delay: "Moins de 3h" },
+        { id: 'apparent', label: "Prise / interrupteur qui a grillé", price: "90€ - 140€", delay: "Moins de 2h" },
+        { id: 'encastre', label: "Câblage encastré / odeur de brûlé", price: "120€ - 200€", delay: "Moins de 3h" },
       ]
     },
-    "Panne chauffe-eau": {
-      label: "Quel est le symptôme ?",
+    "Disjoncteur qui saute": {
+      label: "À quelle fréquence ?",
       options: [
-        { id: 'electrique', label: "Plus d'eau chaude (Panne électrique)", price: "100€ - 160€", delay: "Moins de 4h" },
-        { id: 'fuite', label: "Le ballon fuit", price: "120€ - 200€", delay: "Moins de 2h" },
+        { id: 'ponctuel', label: "Ponctuel (un appareil en cause)", price: "80€ - 120€", delay: "Moins de 2h" },
+        { id: 'frequent', label: "Fréquent (problème d'installation)", price: "120€ - 200€", delay: "Moins de 3h" },
       ]
     },
-    "Problème WC": {
+    "Prise / interrupteur défectueux": {
       label: "Quel est le problème ?",
       options: [
-        { id: 'chasse', label: "Chasse d'eau qui coule", price: "80€ - 110€", delay: "Moins de 3h" },
-        { id: 'fuite_sol', label: "Fuite au sol / Réservoir cassé", price: "110€ - 160€", delay: "Moins de 2h" },
+        { id: 'remplacement', label: "Remplacement simple", price: "60€ - 100€", delay: "Moins de 2h" },
+        { id: 'chauffe', label: "Prise qui chauffe / étincelles", price: "100€ - 160€", delay: "Moins de 1h" },
       ]
     },
     "Autre intervention rapide": {
       label: "Précisez votre besoin",
       options: [
-        { id: 'standard', label: "Intervention standard", price: "90€ - 150€", delay: "Moins de 3h" },
+        { id: 'standard', label: "Intervention standard", price: "80€ - 150€", delay: "Moins de 3h" },
       ]
     }
   };
@@ -127,8 +127,8 @@ export const QuoteWizard: React.FC = () => {
                   key={cat.id}
                   onClick={() => { setCategory(cat.id as any); handleNext(); }}
                   className={`p-6 rounded-xl border-2 text-left transition-all hover:shadow-lg flex items-start ${
-                    category === cat.id 
-                      ? 'border-accent bg-accent/5 dark:bg-accent/10' 
+                    category === cat.id
+                      ? 'border-accent bg-accent/5 dark:bg-accent/10'
                       : 'border-gray-100 dark:border-neutral-800 hover:border-accent/50 dark:hover:border-accent/50'
                   }`}
                 >
@@ -155,8 +155,8 @@ export const QuoteWizard: React.FC = () => {
                   key={mt.type}
                   onClick={() => { updateField('projectType', mt.type); handleNext(); }}
                   className={`p-4 rounded-xl border-2 text-left transition-all hover:shadow-md flex items-center ${
-                    formData.projectType === mt.type 
-                      ? 'border-accent bg-accent/5 dark:bg-accent/10' 
+                    formData.projectType === mt.type
+                      ? 'border-accent bg-accent/5 dark:bg-accent/10'
                       : 'border-gray-100 dark:border-neutral-800 hover:border-accent/50 dark:hover:border-accent/50'
                   }`}
                 >
@@ -179,10 +179,10 @@ export const QuoteWizard: React.FC = () => {
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Ville / Code Postal</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-colors"
-                  placeholder="ex: Montpellier, 34000"
+                  placeholder="ex: Saint-Étienne-Vallée-Française, 48330"
                   value={formData.location}
                   onChange={(e) => updateField('location', e.target.value)}
                 />
@@ -190,17 +190,17 @@ export const QuoteWizard: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Surface estimée (m²)</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-colors"
-                    placeholder="ex: 10"
+                    placeholder="ex: 80"
                     value={formData.surface}
                     onChange={(e) => updateField('surface', e.target.value)}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Budget envisagé</label>
-                  <select 
+                  <select
                     className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-colors"
                     value={formData.budget}
                     onChange={(e) => updateField('budget', e.target.value)}
@@ -216,8 +216,8 @@ export const QuoteWizard: React.FC = () => {
             </div>
             <div className="mt-8 flex justify-end space-x-4">
               <button onClick={handleBack} className="px-6 py-3 text-gray-500 dark:text-gray-400 font-medium hover:text-primary dark:hover:text-white">Retour</button>
-              <button 
-                onClick={handleNext} 
+              <button
+                onClick={handleNext}
                 disabled={!formData.location}
                 className="px-8 py-3 bg-primary dark:bg-accent text-white dark:text-primary rounded-full font-bold hover:bg-secondary dark:hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
@@ -237,8 +237,8 @@ export const QuoteWizard: React.FC = () => {
                   key={ut.type}
                   onClick={() => { updateField('projectType', ut.type); handleNext(); }}
                   className={`p-4 rounded-xl border-2 text-left transition-all hover:shadow-md flex items-center ${
-                    formData.projectType === ut.type 
-                      ? 'border-accent bg-accent/5 dark:bg-accent/10' 
+                    formData.projectType === ut.type
+                      ? 'border-accent bg-accent/5 dark:bg-accent/10'
                       : 'border-gray-100 dark:border-neutral-800 hover:border-accent/50 dark:hover:border-accent/50'
                   }`}
                 >
@@ -265,8 +265,8 @@ export const QuoteWizard: React.FC = () => {
                   key={opt.id}
                   onClick={() => { setSubType(opt.id); handleNext(); }}
                   className={`p-6 rounded-xl border-2 text-left transition-all hover:shadow-md flex items-center justify-between ${
-                    subType === opt.id 
-                      ? 'border-accent bg-accent/5 dark:bg-accent/10' 
+                    subType === opt.id
+                      ? 'border-accent bg-accent/5 dark:bg-accent/10'
                       : 'border-gray-100 dark:border-neutral-800 hover:border-accent/50 dark:hover:border-accent/50'
                   }`}
                 >
@@ -287,7 +287,7 @@ export const QuoteWizard: React.FC = () => {
               <Icons.Phone className="w-8 h-8 text-accent animate-pulse" />
             </div>
             <h2 className="text-2xl font-display font-bold text-primary dark:text-white mb-4">Intervention Prioritaire</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-lg mx-auto">
               <div className="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-xl border border-gray-100 dark:border-neutral-700">
                 <p className="text-xs text-gray-500 uppercase font-bold mb-1">Tarif estimé</p>
@@ -303,9 +303,9 @@ export const QuoteWizard: React.FC = () => {
 
             <div className="bg-accent/5 dark:bg-accent/10 p-6 rounded-2xl border border-accent/20 mb-8 max-w-lg mx-auto">
               <p className="text-primary dark:text-white font-medium mb-4">
-                Veuillez nous appeler directement et laisser un message expliquant votre problème. Nous vous rappellerons immédiatement.
+                Veuillez nous appeler directement et expliquer votre problème. Nous vous rappellerons dans les meilleurs délais.
               </p>
-              <a 
+              <a
                 href={`tel:${COMPANY_INFO.phoneClean}`}
                 className="inline-flex items-center justify-center w-full px-8 py-4 bg-accent text-primary rounded-xl font-bold hover:bg-white transition-all shadow-lg hover:shadow-xl text-lg"
               >
@@ -324,8 +324,8 @@ export const QuoteWizard: React.FC = () => {
             <div className="grid grid-cols-1 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nom complet</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-colors"
                   value={formData.name}
                   onChange={(e) => updateField('name', e.target.value)}
@@ -334,8 +334,8 @@ export const QuoteWizard: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Téléphone</label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-colors"
                     value={formData.phone}
                     onChange={(e) => updateField('phone', e.target.value)}
@@ -343,8 +343,8 @@ export const QuoteWizard: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-colors"
                     value={formData.email}
                     onChange={(e) => updateField('email', e.target.value)}
@@ -353,7 +353,7 @@ export const QuoteWizard: React.FC = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message (facultatif)</label>
-                <textarea 
+                <textarea
                   className="w-full p-4 border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-primary dark:text-white rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent outline-none h-32 resize-none transition-colors"
                   placeholder="Précisions supplémentaires..."
                   value={formData.details}
@@ -363,7 +363,7 @@ export const QuoteWizard: React.FC = () => {
             </div>
             <div className="mt-8 flex justify-end space-x-4">
               <button onClick={handleBack} className="px-6 py-3 text-gray-500 dark:text-gray-400 font-medium hover:text-primary dark:hover:text-white">Retour</button>
-              <button 
+              <button
                 onClick={handleNext}
                 disabled={!formData.name || !formData.phone}
                 className="px-8 py-3 bg-primary dark:bg-accent text-white dark:text-primary rounded-full font-bold hover:bg-secondary dark:hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
@@ -371,47 +371,6 @@ export const QuoteWizard: React.FC = () => {
                 Voir le résumé
               </button>
             </div>
-          </div>
-        )}
-
-        {step === 4 && category === 'gros_oeuvre' && (
-          <div className="animate-fade-in text-center">
-            <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Icons.Check className="w-8 h-8 text-green-600 dark:text-green-400" />
-            </div>
-            <h2 className="text-2xl font-display font-bold text-primary dark:text-white mb-2">Tout est prêt !</h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">
-              Choisissez votre méthode préférée pour nous envoyer votre demande. Nous vous répondrons sous 24h ouvrées.
-            </p>
-
-            <div className="bg-gray-50 dark:bg-neutral-950 p-6 rounded-xl text-left mb-8 border border-gray-100 dark:border-neutral-800 max-w-lg mx-auto">
-              <h4 className="font-bold text-gray-900 dark:text-white mb-2">Résumé :</h4>
-              <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li><span className="font-medium">Type:</span> {formData.projectType}</li>
-                <li><span className="font-medium">Lieu:</span> {formData.location}</li>
-                <li><span className="font-medium">Client:</span> {formData.name}</li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <a 
-                href={mailtoLink}
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary dark:bg-neutral-800 text-white dark:text-white rounded-xl font-bold hover:bg-secondary dark:hover:bg-neutral-700 transition-all shadow-lg hover:shadow-xl"
-              >
-                <Icons.Mail className="mr-2 w-5 h-5" />
-                Envoyer par Email
-              </a>
-              <a 
-                href={smsLink}
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-primary rounded-xl font-bold hover:bg-white transition-all shadow-lg hover:shadow-xl"
-              >
-                <Icons.Mobile className="mr-2 w-5 h-5" />
-                Envoyer par Téléphone
-              </a>
-            </div>
-            <p className="mt-6 text-xs text-gray-400">
-              En cliquant, vous ouvrez votre application de messagerie avec le résumé pré-rempli.
-            </p>
           </div>
         )}
 
@@ -435,14 +394,14 @@ export const QuoteWizard: React.FC = () => {
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href={mailtoLink}
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary dark:bg-neutral-800 text-white dark:text-white rounded-xl font-bold hover:bg-secondary dark:hover:bg-neutral-700 transition-all shadow-lg hover:shadow-xl"
               >
                 <Icons.Mail className="mr-2 w-5 h-5" />
                 Envoyer par Email
               </a>
-              <a 
+              <a
                 href={smsLink}
                 className="inline-flex items-center justify-center px-8 py-4 bg-accent text-primary rounded-xl font-bold hover:bg-white transition-all shadow-lg hover:shadow-xl"
               >

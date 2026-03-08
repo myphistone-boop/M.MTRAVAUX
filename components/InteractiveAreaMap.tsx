@@ -27,24 +27,19 @@ export const InteractiveAreaMap: React.FC = () => {
   useEffect(() => {
     if (!mapContainerRef.current || !window.L) return;
 
-    // Center on Hérault (Clermont-l'Hérault approx)
-    const center: [number, number] = [43.62, 3.43];
-    const montpellier: [number, number] = [43.6108, 3.8767];
-    const beziers: [number, number] = [43.3442, 3.2158];
-    const millau: [number, number] = [44.0983, 3.0783];
-
-    // Detect theme - REMOVED: We want light mode only for the map
-    // const isDarkMode = document.documentElement.classList.contains('dark');
+    // Center on Saint-Étienne-Vallée-Française
+    const center: [number, number] = [44.2167, 3.8333];
+    const stEtienne: [number, number] = [44.2167, 3.8333];
 
     // Initialize Map
     mapInstanceRef.current = window.L.map(mapContainerRef.current, {
       center: center,
-      zoom: 9,
+      zoom: 11,
       zoomControl: false,
       scrollWheelZoom: false,
-      dragging: true, // Enable dragging for all devices
-      tap: true,      // Enable tap for all devices
-      touchZoom: true, // Enable touch zoom
+      dragging: true,
+      tap: true,
+      touchZoom: true,
       attributionControl: false
     });
 
@@ -64,17 +59,15 @@ export const InteractiveAreaMap: React.FC = () => {
       iconAnchor: [8, 8]
     });
 
-    // Add Markers
-    window.L.marker(montpellier, { icon: customIcon }).addTo(mapInstanceRef.current).bindPopup('<b class="text-primary">Montpellier</b>');
-    window.L.marker(beziers, { icon: customIcon }).addTo(mapInstanceRef.current).bindPopup('<b class="text-primary">Béziers</b>');
-    window.L.marker(millau, { icon: customIcon }).addTo(mapInstanceRef.current).bindPopup('<b class="text-primary">Millau</b>');
+    // Add Marker
+    window.L.marker(stEtienne, { icon: customIcon }).addTo(mapInstanceRef.current).bindPopup('<b class="text-primary">Saint-Étienne-Vallée-Française</b>');
 
     // Service Area Circle
     window.L.circle(center, {
       color: '#C9A227',
       fillColor: '#C9A227',
       fillOpacity: 0.1,
-      radius: 65000, // 65km radius
+      radius: 30000, // 30km radius
       weight: 2,
       dashArray: '5, 10'
     }).addTo(mapInstanceRef.current);
@@ -110,17 +103,17 @@ export const InteractiveAreaMap: React.FC = () => {
   return (
     <div className="w-full h-[300px] md:h-[350px] bg-neutral-100 relative overflow-hidden rounded-xl border border-gray-200 shadow-inner group">
       <div ref={mapContainerRef} className="w-full h-full z-0" />
-      
+
       {/* Custom Zoom Controls */}
       <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2">
-        <button 
+        <button
           onClick={handleZoomIn}
           className="w-10 h-10 bg-white/95 backdrop-blur-md rounded-xl border border-gray-200 shadow-lg flex items-center justify-center text-primary hover:text-accent transition-all active:scale-90"
           aria-label="Zoom avant"
         >
           <Icons.Plus size={20} strokeWidth={2.5} />
         </button>
-        <button 
+        <button
           onClick={handleZoomOut}
           className="w-10 h-10 bg-white/95 backdrop-blur-md rounded-xl border border-gray-200 shadow-lg flex items-center justify-center text-primary hover:text-accent transition-all active:scale-90"
           aria-label="Zoom arrière"
@@ -133,7 +126,7 @@ export const InteractiveAreaMap: React.FC = () => {
       <div className="absolute bottom-4 left-4 z-[1000] pointer-events-none">
         <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-gray-200 shadow-lg flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-            <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Zone : Hérault (34)</span>
+            <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Zone : Lozère (48)</span>
         </div>
       </div>
     </div>
