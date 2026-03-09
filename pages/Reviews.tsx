@@ -43,12 +43,13 @@ const reviews = [
 ];
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=600&q=80"
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Accueil%20outils.webp",
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Elec%20prise%20elec.webp",
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Expertise%202.webp",
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Groeuvre%202.webp",
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Gros%20oeuvre.webp",
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/PLan%20elec.webp",
+  "https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/expertise.webp"
 ];
 
 export const Reviews: React.FC = () => {

@@ -12,7 +12,7 @@ export const Interventions: React.FC = () => {
       <section className="relative min-h-[55vh] sm:h-[50vh] flex items-center bg-white overflow-hidden">
         <div className="absolute inset-0 z-0">
            <img
-            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80"
+            src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Elec%20prise%20elec.webp"
             alt="Intervention électrique rapide"
             className="w-full h-full object-cover"
           />

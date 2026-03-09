@@ -66,7 +66,7 @@ export const About: React.FC = () => {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-neutral-800">
                 <img
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80"
+                  src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Expertise%202.webp"
                   alt="Électricien au travail"
                   className="w-full h-full object-cover"
                 />
