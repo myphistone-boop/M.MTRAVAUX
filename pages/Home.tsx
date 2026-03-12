@@ -72,7 +72,7 @@ export const Home: React.FC = () => {
              <div className="relative group order-first lg:order-none">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-neutral-800">
                   <img
-                    src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1000&q=80"
+                    src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/PLan%20elec.webp"
                     alt="Électricien professionnel"
                     className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   />

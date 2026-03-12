@@ -84,7 +84,7 @@ export const HeroBlueprint: React.FC = () => {
         <div className="relative hidden lg:block h-[600px]">
           <div className="absolute top-0 right-0 w-5/6 h-5/6 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 z-10 transform translate-x-4">
             <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80"
+              src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Accueil%20outils.webp"
               alt="Électricien professionnel au travail"
               className="w-full h-full object-cover"
             />

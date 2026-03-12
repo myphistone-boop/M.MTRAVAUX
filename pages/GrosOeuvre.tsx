@@ -11,7 +11,7 @@ export const GrosOeuvre: React.FC = () => {
       <section className="relative min-h-[60vh] sm:h-[60vh] flex items-center bg-primary overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-40 sm:opacity-40">
            <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1600&q=80"
+            src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Gros%20oeuvre.webp"
             alt="Installation électrique gros oeuvre"
             className="w-full h-full object-cover"
           />
@@ -138,14 +138,14 @@ export const GrosOeuvre: React.FC = () => {
                <div className="grid grid-cols-1 gap-6">
                  <div className="relative rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
                    <img
-                     src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80"
+                     src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/Groeuvre%202.webp"
                      alt="Installation tableau électrique"
                      className="w-full h-64 object-cover"
                    />
                  </div>
                  <div className="relative rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
                    <img
-                     src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+                     src="https://storage.googleapis.com/novelec_assets/M%20MTRAVAUX/expertise.webp"
                      alt="Câblage électrique professionnel"
                      className="w-full h-64 object-cover"
                    />
